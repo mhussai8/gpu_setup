@@ -1,4 +1,4 @@
-name: train-my-modell
+name: train-my-model1
 on: [push]
 jobs:
   train:
