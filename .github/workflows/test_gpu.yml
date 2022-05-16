@@ -12,6 +12,6 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          nvidia-smi > report.md
+          echo 'Hi!'  > report.md
           cml send-comment report.md
   
