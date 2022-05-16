@@ -6,5 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: cml_run
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          nvidia-smi >> report.md
+          nvidia-smi > report.md
+          
+          cml-send-comment >> report.md
