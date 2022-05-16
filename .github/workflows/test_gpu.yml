@@ -10,8 +10,9 @@ jobs:
       - uses: iterative/setup-tools@v1
       - name: cml_run
         env:
-             - name: SSL_CERT_DIR
-               value: "/etc/ssl/certs"
+           name: SSL_CERT_DIR
+           value: "/etc/ssl/certs"
+       
         run: |
           echo $CODEBLOCK > report.md
           nvidia-smi >> report.md
