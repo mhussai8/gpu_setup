@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   train:
-    runs-on: [self-hosted]
+    runs-on: [self-hosted,cml,gpu]
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v3
@@ -12,8 +12,6 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo $CODEBLOCK > report.md
-          nvidia-smi >> report.md
-          echo $CODEBLOCK >> report.md
+          nvidia-smi > report.md
           cml send-comment report.md
   
