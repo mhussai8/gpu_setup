@@ -9,6 +9,8 @@ jobs:
         with:
           node-version: '16'
       - name: Runner
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo 'Hi!' >> report.md
           cml send-comment report.md
