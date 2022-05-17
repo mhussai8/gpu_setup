@@ -4,9 +4,10 @@ permissions: write-all
 jobs:
   train:
     runs-on: [self-hosted]
-    container: docker://ghcr.io/iterative/cml:0-dvc2-base1-gpu
+#    container: docker://ghcr.io/iterative/cml:0-dvc2-base1
+    container: docker://iterativeai/cml:0-dvc2-base1-gpu
     steps:
       - uses: actions/checkout@v3
       - name: cml_run
         run: |
-          nvidia-docker run --rm nvidia/cuda nvidia-smi >> report.md
+          nvidia-smi >> report.md
